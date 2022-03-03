@@ -9,8 +9,11 @@ module RenderAPI
         endpoint.get("/owners/#{owner_id}")
       end
 
-      def list(...)
-        endpoint.get("/owners", params: list_parameters(...))
+      def list(limit: nil, cursor: nil, filters: nil)
+        endpoint.get(
+          "/owners",
+          params: list_parameters(limit: limit, cursor: cursor, filters: filters)
+        )
       end
     end
   end

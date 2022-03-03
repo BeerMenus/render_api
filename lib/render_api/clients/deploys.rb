@@ -20,9 +20,10 @@ module RenderAPI
         )
       end
 
-      def list(service_id, ...)
+      def list(service_id, limit: nil, cursor: nil, filters: nil)
         endpoint.get(
-          "/services/#{service_id}/deploys", params: list_parameters(...)
+          "/services/#{service_id}/deploys",
+          params: list_parameters(limit: limit, curosr: cursor, filters: filters)
         )
       end
     end

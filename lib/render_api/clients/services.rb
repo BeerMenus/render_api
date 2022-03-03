@@ -9,8 +9,11 @@ module RenderAPI
         endpoint.get("/services/#{service_id}")
       end
 
-      def list(...)
-        endpoint.get("/services", params: list_parameters(...))
+      def list(limit: nil, cursor: nil, filters: nil)
+        endpoint.get(
+          "/services",
+          params: list_parameters(limit: limit, cursor: cursor, filters: filters)
+        )
       end
     end
   end
